@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 大连民族大学校赛 · 全题解</title>
+<style>
+  :root{
+    --bg:#f7f7f5; --card:#fff; --ink:#1a1a1a; --muted:#6b6b6b;
+    --line:#e3e3df; --accent:#c0392b; --accent-soft:#fdf1ef;
+    --blue:#1f5fa8; --blue-soft:#eef4fb;
+    --green:#1e7a4f; --green-soft:#edf7f1;
+    --amber:#a06a00; --amber-soft:#fdf6e6;
+    --mono:"Cascadia Mono","Consolas","SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Microsoft YaHei","PingFang SC","Segoe UI",system-ui,sans-serif;
+    line-height:1.75;font-size:15px}
+  .wrap{max-width:960px;margin:0 auto;padding:44px 28px 96px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:20px}
+  .kicker{font-size:12px;letter-spacing:.22em;color:var(--accent);font-weight:700}
+  h1{font-size:30px;line-height:1.3;margin:10px 0 6px;letter-spacing:-.5px}
+  .sub{color:var(--muted);font-size:14px}
+  section{margin-top:44px}
+  h2{font-size:20px;margin:0 0 4px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  h2 .num{font-family:var(--mono);font-size:12px;font-weight:700;color:#fff;background:var(--ink);
+    padding:2px 7px;border-radius:3px;flex:none;transform:translateY(-2px)}
+  h2 .h2sub{font-size:13px;color:var(--muted);font-weight:400}
+  .rule{height:1px;background:var(--line);margin:12px 0 20px}
+  h3{font-size:15px;margin:22px 0 8px}
+  p{margin:10px 0}
+  ul,ol{margin:10px 0;padding-left:22px}
+  li{margin:5px 0}
+  code{font-family:var(--mono);font-size:12.5px;background:#ececea;padding:1px 5px;border-radius:3px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}
+  th{text-align:left;font-weight:700;border-bottom:2px solid var(--ink);padding:8px 9px;font-size:11.5px;
+     letter-spacing:.05em;color:var(--muted)}
+  td{border-bottom:1px solid var(--line);padding:8px 9px;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;white-space:nowrap}
+  .t-yes{background:var(--green-soft);color:var(--green)}
+  .t-no{background:var(--accent-soft);color:var(--accent)}
+  .t-mid{background:var(--amber-soft);color:var(--amber)}
+  .callout{border-left:3px solid var(--amber);background:var(--amber-soft);padding:13px 17px;margin:16px 0;
+    border-radius:0 4px 4px 0;font-size:14px}
+  .callout.red{border-color:var(--accent);background:var(--accent-soft)}
+  .callout.blue{border-color:var(--blue);background:var(--blue-soft)}
+  .callout.green{border-color:var(--green);background:var(--green-soft)}
+  .callout .lbl{display:block;font-size:11px;font-weight:800;letter-spacing:.14em;margin-bottom:4px;opacity:.75}
+  .codebox{background:#1e2028;border-radius:6px;margin:12px 0;overflow:hidden}
+  .cbt{font-size:11px;font-family:var(--mono);color:#9aa3b2;background:#171921;padding:6px 13px;
+    letter-spacing:.08em;border-bottom:1px solid #2b2e39}
+  pre{margin:0;padding:13px 15px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.66;color:#e4e7ee}
+  pre .cm{color:#7d8798;font-style:italic}
+  pre .kw{color:#c792ea}
+  pre .fn{color:#82aaff}
+  footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+  .head-line{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:2px}
+  @media print{
+    body{background:#fff;font-size:11pt;line-height:1.5}
+    .wrap{max-width:none;padding:0}
+    section{margin-top:20pt;page-break-inside:avoid}
+    .codebox,table{page-break-inside:avoid}
+    pre{font-size:9pt;background:#fafafa;color:#111;border:1px solid #ccc}
+    .codebox{background:#fafafa}
+    .cbt{background:#eee;color:#333;border-color:#ccc}
+    pre .cm{color:#666}pre .kw{color:#800}pre .fn{color:#006}
+    header{border-color:#000}
+    .tag,.callout{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">2026 大连民族大学程序设计竞赛 · 全部 14 题</div>
+  <h1>全题解</h1>
+  <div class="sub">按「通过人数」排难度 · 每题的题意、思路、完整 C 代码、坑，以及你当时的情况</div>
+</header>
+
+<!-- ========== 总览 ========== -->
+<section>
+  <h2><span class="num">00</span>先看全局<span class="h2sub">难度地图与重做顺序</span></h2>
+  <div class="rule"></div>
+
+  <p>下面这张表按<b>通过人数</b>降序排。通过人数是全场最诚实的难度指标——比你自己的感觉准得多。</p>
+
+  <table>
+    <thead><tr><th style="width:8%">题</th><th style="width:30%">题目</th><th style="width:12%">通过 / 提交</th>
+    <th style="width:14%">算法</th><th style="width:36%">你当时</th></tr></thead>
+    <tbody>
+      <tr><td><b>A</b></td><td>1024</td><td>69 / 87</td><td>位运算</td><td><span class="tag t-yes">AC 8 min</span></td></tr>
+      <tr><td><b>E</b></td><td>群雄逐鹿（简单版）</td><td>35 / 40</td><td>直接模拟</td><td><span class="tag t-yes">AC 63 min</span></td></tr>
+      <tr><td><b>H</b></td><td>33550336</td><td>31 / 39</td><td>枚举 + 判定</td><td><span class="tag t-no">没提交</span></td></tr>
+      <tr><td><b>B</b></td><td>?! 回文文回 !?</td><td>24 / 44</td><td>拆位 + 双指针</td><td><span class="tag t-yes">AC 22 min</span></td></tr>
+      <tr><td><b>M</b></td><td>电影院热度统计</td><td>18 / 28</td><td>差分 + 前缀和</td><td><span class="tag t-mid">AC 167 min（5 WA）</span></td></tr>
+      <tr><td><b>G</b></td><td>校园寻路</td><td>9 / 12</td><td>BFS 邻接表</td><td><span class="tag t-yes">AC 130 min（1 WA）</span></td></tr>
+      <tr><td><b>D</b></td><td>我的世界均分食物</td><td>7 / 31</td><td>前缀和 + 二分</td><td><span class="tag t-no">4 WA 未过</span></td></tr>
+      <tr><td><b>C</b></td><td>阳光分配</td><td>5 / 11</td><td>01 背包 + 还原</td><td><span class="tag t-no">没提交</span></td></tr>
+      <tr><td><b>L</b></td><td>八级钳工</td><td>3 / 9</td><td>解方程</td><td><span class="tag t-no">没提交</span></td></tr>
+      <tr><td><b>I</b></td><td>魔术师的试炼</td><td>1 / 3</td><td>模拟洗牌</td><td><span class="tag t-no">没提交</span></td></tr>
+      <tr><td><b>N</b></td><td>旅行中的游戏</td><td>1 / 11</td><td>博弈 + 分解质因数</td><td><span class="tag t-no">没提交</span></td></tr>
+      <tr><td><b>K</b></td><td>星门密码</td><td>0 / 7</td><td>子集和 SOS DP</td><td><span class="tag t-no">没提交</span></td></tr>
+      <tr><td><b>J</b></td><td>魔术师的终极试炼</td><td>0 / 1</td><td>数学推导</td><td><span class="tag t-no">没提交</span></td></tr>
+      <tr><td><b>F</b></td><td>群雄逐鹿（困难版）</td><td>0 / 2</td><td>离线逆序 + 并查集</td><td><span class="tag t-no">没提交</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout red">
+    <span class="lbl">一句话结论</span>
+    <b>你拿下了全场第 6 难的 G（9 人过），却漏了第 3 简单的 H（31 人过）和第 7 的 D（7 人过）。</b><br>
+    如果当时按「通过人数」从多到少做，H 是第 3 个该做的题，只需要一个循环加三个判断。
+  </div>
+
+  <h3>建议重做顺序（按性价比）</h3>
+  <ol>
+    <li><b>H</b>（31 人过，枚举题，10 分钟）—— 补上最容易丢的分</li>
+    <li><b>D</b>（7 人过，前缀和 + 二分，20 分钟）—— 你已经有前缀和基础</li>
+    <li><b>C</b>（5 人过，01 背包，40 分钟）—— 唯一需要认真学的</li>
+    <li><b>L</b>（3 人过，解方程，15 分钟）—— 送分题，别被"计算几何"吓退</li>
+    <li><b>N</b>（1 人过，博弈，30 分钟）—— 结论很漂亮</li>
+    <li><b>I / M / G</b> —— 你已经 AC 了，重做一遍为了"能盲写"</li>
+    <li><b>F / J / K</b> —— 放弃。看第 12–14 节了解思路就够</li>
+  </ol>
+</section>
+
+<!-- ========== A ========== -->
+<section>
+  <h2><span class="num">A</span>1024<span class="h2sub">69 人通过 · 位运算 · 你 AC 了（8 分钟）</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>给正整数 n（n ≤ 10⁶），判断它是不是 2 的整数次幂。</p>
+  <p><b>思路：</b>2 的幂的二进制里只有 1 个 1。所以 <code>n &amp; (n-1)</code> 会把最低位的那个 1 消掉——结果是 0 就是 2 的幂。<code>n=1</code> 也满足（<code>1 &amp; 0 = 0</code>），正好题目认为 1 是 2⁰。</p>
+  <div class="codebox"><div class="cbt">A.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">int</span> n;
+    <span class="fn">scanf</span>(<span class="cm">"%d"</span>, &amp;n);
+    <span class="kw">if</span> (n &gt; 0 &amp;&amp; (n &amp; (n - 1)) == 0) <span class="fn">printf</span>(<span class="cm">"YES\n"</span>);
+    <span class="kw">else</span>                            <span class="fn">printf</span>(<span class="cm">"NO\n"</span>);
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>坑：</b>这一题判题器是 Special Judge，输出 <code>Yes</code>/<code>yes</code>/<code>YES</code> 都行，别在这上面纠结。</p>
+</section>
+
+<!-- ========== B ========== -->
+<section>
+  <h2><span class="num">B</span>?! 回文文回 !?<span class="h2sub">24 人通过 · 拆位 + 双指针 · 你 AC 了（22 分钟）</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>给 n 个数（n ≤ 10⁵，aᵢ ≤ 10⁹），逐个判断它的<b>二进制表示（去掉前导零）</b>是不是回文。特别规定 0 的二进制是 <code>0</code>，是回文。</p>
+  <p><b>思路：</b>把每一位拆到一个数组里（低位在前），然后首尾两个指针往中间夹。<b>0 要单独判</b>，因为它一位都不进循环。</p>
+  <div class="codebox"><div class="cbt">B.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">int</span> n, i;
+    <span class="fn">scanf</span>(<span class="cm">"%d"</span>, &amp;n);
+    <span class="kw">for</span> (i = 0; i &lt; n; i++) {
+        <span class="kw">unsigned int</span> x; <span class="kw">int</span> b[40], k = 0, ok = 1, t;
+        <span class="fn">scanf</span>(<span class="cm">"%u"</span>, &amp;x);
+        <span class="kw">if</span> (x == 0) { <span class="fn">printf</span>(<span class="cm">"Yes\n"</span>); <span class="kw">continue</span>; }  <span class="cm">/* 0 是回文 */</span>
+        <span class="kw">while</span> (x) { b[k++] = x &amp; 1; x &gt;&gt;= 1; }        <span class="cm">/* 低位在前 */</span>
+        <span class="kw">for</span> (t = 0; t &lt; k / 2; t++)
+            <span class="kw">if</span> (b[t] != b[k - 1 - t]) { ok = 0; <span class="kw">break</span>; }
+        <span class="fn">printf</span>(ok ? <span class="cm">"Yes\n"</span> : <span class="cm">"No\n"</span>);
+    }
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>坑：</b>0 一定要特判；<code>aᵢ</code> 用 <code>unsigned int</code> 或者直接用 <code>int</code> 都行（10⁹ &lt; 2³¹）。</p>
+</section>
+
+<!-- ========== C ========== -->
+<section>
+  <h2><span class="num">C</span>阳光分配<span class="h2sub">5 人通过 · 01 背包 + 方案还原 · 你没提交</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>阳光总量 S，n 株植物（n ≤ 100，S ≤ 10⁵）。每株有消耗 <code>cost</code> 和防御值 <code>val</code>，<b>每株只能买一次</b>。求最大总防御值，并输出买了哪些（按消耗降序，同消耗按价值降序）。</p>
+  <p><b>思路：</b>这就是 01 背包。但多了一层——<b>要输出方案</b>。一维 <code>dp[j]</code> 里只剩一个数字，回溯不出"哪几株被买了"，所以必须开二维。</p>
+  <div class="callout blue">
+    <span class="lbl">为什么全场只有 5 人过</span>
+    普通 01 背包很多人会背，但"记录选择"这一步要理解 <code>dp[i][j]</code> 的含义：<b>只看前 i 株、阳光上限 j 时的最大防御值</b>。有了第一维，才能从 <code>(n, S)</code> 往回走。
+  </div>
+  <div class="codebox"><div class="cbt">C.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="kw">#define</span> MAXN 105
+<span class="kw">#define</span> MAXS 100005
+
+<span class="kw">int</span> cost[MAXN], val[MAXN];
+<span class="kw">int</span> dp[MAXN][MAXS];        <span class="cm">/* 约 42MB，必须放全局 */</span>
+<span class="kw">int</span> pick[MAXN];
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">int</span> n, S, i, j, k, cnt = 0;
+
+    <span class="fn">scanf</span>(<span class="cm">"%d %d"</span>, &amp;n, &amp;S);
+    <span class="kw">for</span> (i = 1; i &lt;= n; i++) <span class="fn">scanf</span>(<span class="cm">"%d %d"</span>, &amp;cost[i], &amp;val[i]);
+
+    <span class="kw">for</span> (i = 1; i &lt;= n; i++) {
+        <span class="kw">for</span> (j = 0; j &lt;= S; j++) {
+            dp[i][j] = dp[i-1][j];                        <span class="cm">/* 不买第 i 株 */</span>
+            <span class="kw">if</span> (j &gt;= cost[i] &amp;&amp; dp[i-1][j-cost[i]] + val[i] &gt; dp[i][j])
+                dp[i][j] = dp[i-1][j-cost[i]] + val[i];   <span class="cm">/* 买第 i 株 */</span>
+        }
+    }
+
+    <span class="cm">/* 还原：从最后一格往回走 */</span>
+    j = S;
+    <span class="kw">for</span> (i = n; i &gt;= 1; i--) {
+        <span class="kw">if</span> (dp[i][j] != dp[i-1][j]) {   <span class="cm">/* 说明第 i 株被买了 */</span>
+            pick[cnt++] = i;
+            j -= cost[i];
+        }
+    }
+
+    <span class="fn">printf</span>(<span class="cm">"%d\n"</span>, dp[n][S]);
+
+    <span class="cm">/* 按消耗降序、同消耗按价值降序 */</span>
+    <span class="kw">for</span> (i = 0; i &lt; cnt; i++)
+        <span class="kw">for</span> (k = i + 1; k &lt; cnt; k++)
+            <span class="kw">if</span> (cost[pick[k]] &gt; cost[pick[i]] ||
+               (cost[pick[k]] == cost[pick[i]] &amp;&amp; val[pick[k]] &gt; val[pick[i]])) {
+                <span class="kw">int</span> t = pick[i]; pick[i] = pick[k]; pick[k] = t;
+            }
+
+    <span class="kw">for</span> (i = 0; i &lt; cnt; i++)
+        <span class="fn">printf</span>(<span class="cm">"%d %d\n"</span>, cost[pick[i]], val[pick[i]]);
+
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>样例验证：</b><code>4 100</code> / <code>50 60 / 30 40 / 20 25 / 40 50</code> → 输出 <code>125</code>，然后 <code>50 60 / 30 40 / 20 25</code>。</p>
+  <p><b>坑：</b>① <code>dp[i-1][...]</code> 不是 <code>dp[i][...]</code>——这才是"每株只用一次"；② 还原时一定要先判 <code>dp[i][j] != dp[i-1][j]</code> 再减 <code>cost</code>；③ 数组 42MB，放 <code>main</code> 里会直接崩栈。</p>
+</section>
+
+<!-- ========== D ========== -->
+<section>
+  <h2><span class="num">D</span>我的世界均分食物<span class="h2sub">7 人通过 · 前缀和 + 二分 · 你 4 次 WA 未过</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>n 份食物，饱食度依次是 <code>k, k+1, …, k+n-1</code>。选一个切点 i，把前 i 份给左边、剩下的给右边，让两边总和的<b>差的绝对值最小</b>。n, k ≤ 10⁹。</p>
+  <p><b>思路：</b>前 i 份的和 = <code>i(2k+i-1)/2</code>，记 <code>F(i) = i(2k+i-1)</code>（正好是两倍）。总和 <code>2·S</code>。目标就是让 <code>F(i)</code> 尽量接近 <code>S</code>。</p>
+  <p><code>F(i)</code> 随 i 单调递增，所以<b>二分找第一个 F(i) ≥ 总和的 i</b>，答案一定在 <code>i-1</code> 和 <code>i</code> 里，两个都算一遍取最小。</p>
+  <div class="codebox"><div class="cbt">D.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">long long</span> n, k, total, lo, hi, mid, ans;
+
+    <span class="fn">scanf</span>(<span class="cm">"%lld %lld"</span>, &amp;n, &amp;k);
+    total = n * (2 * k + n - 1) / 2;          <span class="cm">/* 全部饱食度之和 */</span>
+
+    lo = 1; hi = n - 1;                        <span class="cm">/* 切点范围 1..n-1 */</span>
+    <span class="kw">while</span> (lo &lt; hi) {
+        mid = lo + (hi - lo) / 2;
+        <span class="kw">if</span> (mid * (2 * k + mid - 1) &gt;= total) hi = mid;
+        <span class="kw">else</span>                                  lo = mid + 1;
+    }
+
+    ans = total;                               <span class="cm">/* 先取一个上界 */</span>
+    <span class="kw">for</span> (mid = lo - 1; mid &lt;= lo; mid++) {
+        <span class="kw">if</span> (mid &lt; 1 || mid &gt; n - 1) <span class="kw">continue</span>;
+        <span class="kw">long long</span> d = mid * (2 * k + mid - 1) - total;
+        <span class="kw">if</span> (d &lt; 0) d = -d;
+        <span class="kw">if</span> (d &lt; ans) ans = d;
+    }
+
+    <span class="fn">printf</span>(<span class="cm">"%lld\n"</span>, ans);
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>样例验证：</b><code>7 2</code> → 5。</p>
+  <p><b>坑：</b>① <code>n·k</code> 最大到 10¹⁸，<b>必须 long long</b>——你 4 次 WA 大概率死在这里；② 两倍关系别搞混：<code>F(i)</code> 是两倍前缀和，直接和 <code>total</code> 比，不要再多乘 2；③ 只比较 <code>lo-1</code> 和 <code>lo</code> 两个候选，不要从头枚举。</p>
+</section>
+
+<!-- ========== E ========== -->
+<section>
+  <h2><span class="num">E</span>群雄逐鹿（简单版）<span class="h2sub">35 人通过 · 直接模拟 · 你 AC 了（63 分钟）</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>n 座城市排成一排（n ≤ 5000）。m 次操作（m ≤ 5000），每次把区间 <code>[u,v]</code> 全染成颜色 c，<b>后发生的覆盖先发生的</b>。最后输出每座城市的颜色，没被染过的输出 0。</p>
+  <p><b>思路：</b>数据小到 5000×5000 = 2.5×10⁷，<b>直接暴力覆盖</b>就行，不用任何技巧。这是全场性价比最高的题之一。</p>
+  <div class="codebox"><div class="cbt">E.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="kw">#define</span> MAXN 5005
+<span class="kw">int</span> own[MAXN];       <span class="cm">/* 全局，自动清零，正好对应"没被占领输出 0" */</span>
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">int</span> n, m, i, k, u, v, c;
+
+    <span class="fn">scanf</span>(<span class="cm">"%d %d"</span>, &amp;n, &amp;m);
+    <span class="kw">for</span> (k = 0; k &lt; m; k++) {
+        <span class="fn">scanf</span>(<span class="cm">"%d %d %d"</span>, &amp;u, &amp;v, &amp;c);
+        <span class="kw">for</span> (i = u; i &lt;= v; i++) own[i] = c;
+    }
+
+    <span class="kw">for</span> (i = 1; i &lt;= n; i++)
+        <span class="fn">printf</span>(i == n ? <span class="cm">"%d\n"</span> : <span class="cm">"%d "</span>, own[i]);
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>坑：</b>输出格式是空格分隔、行末不要多空格。上面的写法正好处理了。</p>
+  <p><b>延伸：</b>如果 n, m 变成 10⁵（就是 F 题），暴力就会 TLE，那时候要换"倒序 + 跳过已染色"的思路。</p>
+</section>
+
+<!-- ========== F ========== -->
+<section>
+  <h2><span class="num">F</span>群雄逐鹿（困难版）<span class="h2sub">0 人通过 · 离线逆序 + 并查集 · 你没提交</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>把 E 题的城市排布从"一条直线"换成"一棵树"（n, m ≤ 10⁵）。每次操作占领 u 到 v 的<b>路径</b>上的所有点，后覆盖先。输出最终归属。</p>
+  <p><b>思路（了解即可，不必实现）：</b></p>
+  <ol>
+    <li><b>倒着做</b>：从最后一次操作往回处理。某个点一旦被后面的操作染过，前面就再也改不动它了——所以<b>每个点只会被写一次</b>。</li>
+    <li>于是问题变成"每次操作，把路径上<b>还没被染色</b>的点染掉"。</li>
+    <li>用并查集维护"跳过已染色点"：<code>find(x)</code> 返回 x 及其祖先中<b>最近的一个未染色点</b>。染完一个点就把它并到它的父亲上，下次直接跳过。</li>
+    <li>路径 u→v 拆成 u→lca 和 v→lca 两段，每段用 <code>find</code> 一步步往上跳，总跳次数 ≤ n。</li>
+  </ol>
+  <p><b>复杂度：</b>O((n + m) α(n) + m log n)（log 来自 LCA）。</p>
+  <div class="callout">
+    <span class="lbl">诚实说明</span>
+    这题需要 LCA + 并查集两个东西组合，0 人通过。现在补它性价比极低——<b>知道"倒序处理 + 跳过已染色"这个套路</b>就够了，下次见到类似的"后覆盖先、问最终状态"能有印象。
+  </div>
+</section>
+
+<!-- ========== G ========== -->
+<section>
+  <h2><span class="num">G</span>校园寻路<span class="h2sub">9 人通过 · BFS 邻接表 · 你 AC 了（130 分钟，1 WA）</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>n 个点 m 条边的无向图（n, m ≤ 2×10⁵），每条边长度都是 1。求 s 到 t 的最少边数，不可达输出 -1。图可能有重边、可能不连通。</p>
+  <p><b>思路：</b>边权全是 1 → <b>BFS</b>。但 2×10⁵ 个点不能开邻接矩阵（4×10¹⁰ 个格子），必须用<b>邻接表</b>：<code>head[]</code> + <code>to[]</code> + <code>nxt[]</code> 三个数组。</p>
+  <div class="codebox"><div class="cbt">G.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="kw">#define</span> MAXN 200005
+<span class="kw">#define</span> MAXE 400005
+
+<span class="kw">int</span> head[MAXN], to[MAXE], nxt[MAXE], ecnt = 0;
+<span class="kw">int</span> q[MAXN], dist[MAXN];
+
+<span class="kw">void</span> <span class="fn">add</span>(<span class="kw">int</span> u, <span class="kw">int</span> v) {
+    to[++ecnt] = v; nxt[ecnt] = head[u]; head[u] = ecnt;
+}
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">int</span> n, m, i, s, t, u, v, h, tail = 0;
+
+    <span class="fn">scanf</span>(<span class="cm">"%d %d"</span>, &amp;n, &amp;m);
+    <span class="kw">for</span> (i = 0; i &lt; m; i++) {
+        <span class="fn">scanf</span>(<span class="cm">"%d %d"</span>, &amp;u, &amp;v);
+        <span class="fn">add</span>(u, v); <span class="fn">add</span>(v, u);        <span class="cm">/* 无向图，加两条 */</span>
+    }
+    <span class="fn">scanf</span>(<span class="cm">"%d %d"</span>, &amp;s, &amp;t);
+
+    <span class="kw">for</span> (i = 1; i &lt;= n; i++) dist[i] = -1;
+    dist[s] = 0; q[tail++] = s;
+
+    <span class="kw">for</span> (h = 0; h &lt; tail; h++) {
+        <span class="kw">int</span> x = q[h];
+        <span class="kw">for</span> (<span class="kw">int</span> e = head[x]; e; e = nxt[e]) {
+            <span class="kw">int</span> y = to[e];
+            <span class="kw">if</span> (dist[y] != -1) <span class="kw">continue</span>;
+            dist[y] = dist[x] + 1;
+            q[tail++] = y;
+        }
+    }
+
+    <span class="fn">printf</span>(<span class="cm">"%d\n"</span>, dist[t]);
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>坑：</b>① 无向图每条边要加两次，<code>to/nxt</code> 数组开 <code>2m</code>；② <code>dist</code> 初始化为 -1，正好当"没访问过"的标记，最后不可达时输出 -1 天然正确；③ 队列开 n+1 就够（每个点只进队一次）。</p>
+</section>
+
+<!-- ========== H ========== -->
+<section>
+  <h2><span class="num">H</span>33550336<span class="h2sub">31 人通过 · 枚举 + 条数判定 · 你没提交 ← 最大的遗憾</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>给区间 <code>[l, r]</code>（r ≤ 10⁹，且 r-l ≤ 10⁸），数里面有多少个"伪完全数"。伪完全数满足下面三条性质中的<b>至少两条</b>：</p>
+  <ul>
+    <li>性质 1：尾数是 <code>6</code> 或 <code>28</code>；</li>
+    <li>性质 2：除以 9 余 1（6 除外）；</li>
+    <li>性质 3：是完全数。</li>
+  </ul>
+  <p><b>思路：</b>10⁹ 以内的完全数只有 5 个：<b>6, 28, 496, 8128, 33550336</b>（题目标题就是这个数）。所以性质 3 可以写死成 5 个比较。剩下就是一个循环 + 三个判断。</p>
+  <div class="codebox"><div class="cbt">H.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="kw">int</span> <span class="fn">perfect</span>(<span class="kw">int</span> x) {
+    <span class="kw">return</span> x == 6 || x == 28 || x == 496 || x == 8128 || x == 33550336;
+}
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">long long</span> l, r, i;
+    <span class="kw">int</span> ans = 0;
+
+    <span class="fn">scanf</span>(<span class="cm">"%lld %lld"</span>, &amp;l, &amp;r);
+
+    <span class="kw">for</span> (i = l; i &lt;= r; i++) {
+        <span class="kw">int</span> p1 = (i % 10 == 6) || (i % 100 == 28);
+        <span class="kw">int</span> p2 = (i % 9 == 1);
+        <span class="kw">int</span> p3 = <span class="fn">perfect</span>((<span class="kw">int</span>)i);
+        <span class="kw">if</span> (p1 + p2 + p3 &gt;= 2) ans++;
+    }
+
+    <span class="fn">printf</span>(<span class="cm">"%d\n"</span>, ans);
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>样例验证：</b><code>1 100</code> → 3（6、28、46）；<code>1 900</code> → 12（6、28、46、136、226、316、406、496、586、676、766、856）。</p>
+  <p><b>坑：</b>① 三条性质是"至少满足两条"，不是"满足任一"——用 <code>p1+p2+p3 &gt;= 2</code> 最省事；② 循环最多 10⁸ 次，必须用 <code>long long</code> 的 <code>i</code> 还是 <code>int</code> 都行，但判断别做除法；③ 如果想更快，可以加一句"尾数既不是 6 也不是 28 就直接跳过"，只在完全数上再检查。</p>
+  <div class="callout red">
+    <span class="lbl">这题本该是你的</span>
+    31 人通过，全场第 3 简单。不需要任何算法，只需要把三条性质翻译成三个判断。你当时连题都没读。
+  </div>
+</section>
+
+<!-- ========== I ========== -->
+<section>
+  <h2><span class="num">I</span>魔术师的试炼<span class="h2sub">1 人通过 · 模拟洗牌 · 你没提交</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>21 张牌摆成 3 行 7 列（给定初始摆法，1~21 各出现一次）。做三轮"魔术洗牌"，每轮观众告诉你目标牌当前在第 R 行（0/1/2）。三轮之后，求出目标牌的编号。</p>
+  <p><b>每轮三步：</b>① 按行收成三堆；② 把第 R 行那堆放到三堆的<b>正中间</b>，其余两堆保持相对顺序；③ 重新发牌：第 i 张（从 1 数）放到第 <code>(i-1)%3</code> 行、第 <code>(i-1)/3</code> 列。</p>
+  <p><b>思路：</b>别想着"猜是哪张牌"。反过来——<b>每轮都会把候选缩小到一行</b>。所以：先把第 R₀ 行的 7 张全当候选，做一次洗牌，和第 R₁ 行取交集，再洗一次，和第 R₂ 行取交集，最后洗一次，剩下的那张就是答案。</p>
+  <div class="codebox"><div class="cbt">I.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+<span class="kw">#include</span> &lt;string.h&gt;
+
+<span class="kw">int</span> g[3][7];
+<span class="kw">int</span> cand[22];                 <span class="cm">/* cand[x]=1 表示号码 x 还是候选 */</span>
+
+<span class="kw">void</span> <span class="fn">shuffle</span>(<span class="kw">int</span> R) {
+    <span class="kw">int</span> pile[3][7], deck[21], r, c;
+    <span class="kw">int</span> others[2], oi = 0;
+
+    <span class="kw">for</span> (r = 0; r &lt; 3; r++)
+        <span class="kw">for</span> (c = 0; c &lt; 7; c++) pile[r][c] = g[r][c];
+
+    <span class="kw">for</span> (r = 0; r &lt; 3; r++) <span class="kw">if</span> (r != R) others[oi++] = r;
+
+    <span class="cm">/* 第 R 堆放中间 */</span>
+    <span class="kw">for</span> (c = 0; c &lt; 7; c++) deck[c]         = pile[others[0]][c];
+    <span class="kw">for</span> (c = 0; c &lt; 7; c++) deck[7 + c]     = pile[R][c];
+    <span class="kw">for</span> (c = 0; c &lt; 7; c++) deck[14 + c]    = pile[others[1]][c];
+
+    <span class="cm">/* 重新发牌：第 i 张 -> (i%3, i/3) */</span>
+    <span class="kw">for</span> (r = 0; r &lt; 3; r++)
+        <span class="kw">for</span> (c = 0; c &lt; 7; c++) g[r][c] = deck[r + 3 * c];
+}
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">int</span> i, j, k, R[3], r, c;
+
+    <span class="kw">for</span> (i = 0; i &lt; 3; i++)
+        <span class="kw">for</span> (j = 0; j &lt; 7; j++) <span class="fn">scanf</span>(<span class="cm">"%d"</span>, &amp;g[i][j]);
+    <span class="kw">for</span> (k = 0; k &lt; 3; k++) <span class="fn">scanf</span>(<span class="cm">"%d"</span>, &amp;R[k]);
+
+    <span class="kw">for</span> (c = 0; c &lt; 7; c++) cand[g[R[0]][c]] = 1;   <span class="cm">/* 第一轮前：必在 R[0] 行 */</span>
+
+    <span class="kw">for</span> (k = 0; k &lt; 3; k++) {
+        <span class="fn">shuffle</span>(R[k]);
+        <span class="kw">if</span> (k &lt; 2) {                                <span class="cm">/* 和下一轮的已知行取交集 */</span>
+            <span class="kw">int</span> keep[21] = {0};
+            <span class="kw">for</span> (c = 0; c &lt; 7; c++) <span class="kw">if</span> (cand[g[R[k+1]][c]]) keep[g[R[k+1]][c]] = 1;
+            <span class="fn">memcpy</span>(cand, keep, <span class="kw">sizeof</span>(keep));
+        }
+    }
+
+    <span class="kw">for</span> (i = 1; i &lt;= 21; i++) <span class="kw">if</span> (cand[i]) { <span class="fn">printf</span>(<span class="cm">"%d\n"</span>, i); <span class="kw">break</span>; }
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>样例验证：</b>初始按行 1..21，三轮 R = 0,1,2 → 输出 7。</p>
+  <p><b>坑：</b>① 收牌顺序是"第 R 堆放中间，另外两堆保持它们原本的先后"（剩下两行里小的在上面）；② 发牌是<b>按列填</b>（<code>i%3</code> 行、<code>i/3</code> 列），不是按行填；③ 三轮之后候选必然只剩 1 张，这是这个魔术的原理。</p>
+</section>
+
+<!-- ========== J ========== -->
+<section>
+  <h2><span class="num">J</span>魔术师的终极试炼<span class="h2sub">0 人通过 · 数学推导 · 你没提交</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>R 行 C 列（R, C 都是奇数，≤ 10¹⁸）。问最少几轮洗牌，才能<b>无论观众选哪张牌</b>都唯一确定它的位置。样例 <code>3 9</code> → <code>3</code>。</p>
+  <p><b>思路：</b>每一轮观众只能提供"它在第几行"这一个信息，也就是 R 种可能。k 轮最多区分 <code>R^k</code> 种情况，而牌有 <code>R×C</code> 张。所以必须 <code>R^k ≥ R×C</code>。<br>
+  从样例看，这个下界就是答案：3³ = 27 ≥ 3×9 = 27，所以 3 轮。</p>
+  <div class="codebox"><div class="cbt">J.c（思路正确性未完全验证，仅供参考）</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">long long</span> R, C;
+    __int128 limit = 1, cur = 1;
+    <span class="kw">int</span> k = 0;
+
+    <span class="fn">scanf</span>(<span class="cm">"%lld %lld"</span>, &amp;R, &amp;C);
+    limit = (__int128)R * C;          <span class="cm">/* 1e36，必须 __int128 */</span>
+
+    <span class="kw">while</span> (cur &lt; limit) { cur *= R; k++; }
+
+    <span class="fn">printf</span>(<span class="cm">"%d\n"</span>, k);
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>说明：</b>全场只有 1 次提交、0 人通过，说明"这个下界能不能取到"需要严格的构造证明。当作数学阅读材料即可。</p>
+</section>
+
+<!-- ========== K ========== -->
+<section>
+  <h2><span class="num">K</span>星门密码<span class="h2sub">0 人通过 · 子集和 SOS DP · 你没提交</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>给 n 个数（n ≤ 10⁵，aᵢ ≤ 10⁶），数有多少对 <code>i≠j</code> 满足 <code>aᵢ ⊕ aⱼ = aᵢ + aⱼ</code>。</p>
+  <p><b>关键一步：</b><code>a + b = (a ⊕ b) + 2(a &amp; b)</code>，所以 <code>a ⊕ b = a + b</code> 等价于 <b><code>a &amp; b == 0</code></b>（二进制没有同一位同时是 1）。</p>
+  <p><b>思路：</b>aᵢ ≤ 10⁶ &lt; 2²⁰，所以值域只有 2²⁰ ≈ 100 万。<br>
+  ① 统计每个值出现几次 <code>cnt[v]</code>；<br>
+  ② 用 SOS DP 求 <code>f[mask]</code> = 有多少个数是 mask 的<b>子集</b>；<br>
+  ③ 对每个值 v，能和它配对的数的个数就是 <code>f[全1 ^ v]</code>（v 的补集的子集）；<br>
+  ④ 加起来是"有序对"，去掉自身配对后除以 2。</p>
+  <div class="codebox"><div class="cbt">K.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="kw">#define</span> B   20
+<span class="kw">#define</span> SZ  (1 &lt;&lt; B)
+
+<span class="kw">int</span> cnt[SZ];
+<span class="kw">int</span> f[SZ];
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">int</span> n, i, b, v;
+    <span class="kw">long long</span> ans = 0;
+
+    <span class="fn">scanf</span>(<span class="cm">"%d"</span>, &amp;n);
+    <span class="kw">for</span> (i = 0; i &lt; n; i++) { <span class="fn">scanf</span>(<span class="cm">"%d"</span>, &amp;v); cnt[v]++; }
+
+    <span class="kw">for</span> (v = 0; v &lt; SZ; v++) f[v] = cnt[v];
+    <span class="kw">for</span> (b = 0; b &lt; B; b++)
+        <span class="kw">for</span> (v = 0; v &lt; SZ; v++)
+            <span class="kw">if</span> (v &amp; (1 &lt;&lt; b)) f[v] += f[v ^ (1 &lt;&lt; b)];
+
+    <span class="kw">for</span> (v = 0; v &lt; SZ; v++)
+        <span class="kw">if</span> (cnt[v]) ans += (<span class="kw">long long</span>)cnt[v] * f[(SZ - 1) ^ v];
+
+    ans -= cnt[0];      <span class="cm">/* 唯一的"自己配自己"只发生在 0 上 */</span>
+    ans /= 2;           <span class="cm">/* 有序对 -> 无序对 */</span>
+
+    <span class="fn">printf</span>(<span class="cm">"%lld\n"</span>, ans);
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>样例验证：</b><code>1 2 3 4 8</code> → 8。</p>
+  <p><b>说明：</b>SOS DP（子集和变换）是这题的核心，20×2²⁰ ≈ 2×10⁷ 次操作，1 秒够用。这道题没法暴力，0 人通过可以理解。</p>
+</section>
+
+<!-- ========== L ========== -->
+<section>
+  <h2><span class="num">L</span>八级钳工<span class="h2sub">3 人通过 · 解方程 · 你没提交 ← 送分题</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>给三个轴心坐标 A、B、C，找三个齿轮半径，使它们<b>两两外切</b>。无解输出 -1，有解输出一行三个半径（升序，误差 10⁻⁶ 内都算对）。</p>
+  <p><b>思路：</b>"外切"就是圆心距等于两个半径之和：</p>
+  <p style="text-align:center;font-family:var(--mono)">
+    d_AB = r₁ + r₂ &nbsp;&nbsp; d_BC = r₂ + r₃ &nbsp;&nbsp; d_CA = r₃ + r₁
+  </p>
+  <p>三元一次方程组，解出来很整齐：</p>
+  <p style="text-align:center;font-family:var(--mono)">
+    r₁ = (d_AB + d_CA − d_BC) / 2<br>
+    r₂ = (d_AB + d_BC − d_CA) / 2<br>
+    r₃ = (d_BC + d_CA − d_AB) / 2
+  </p>
+  <p><b>只要有一个半径 ≤ 0，就无解</b>（三点共线时就是这样）。</p>
+  <div class="codebox"><div class="cbt">L.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+<span class="kw">#include</span> &lt;math.h&gt;
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">double</span> x1, y1, x2, y2, x3, y3, d12, d23, d31, r1, r2, r3, t;
+
+    <span class="fn">scanf</span>(<span class="cm">"%lf %lf %lf %lf %lf %lf"</span>,
+          &amp;x1, &amp;y1, &amp;x2, &amp;y2, &amp;x3, &amp;y3);
+
+    d12 = <span class="fn">hypot</span>(x2 - x1, y2 - y1);
+    d23 = <span class="fn">hypot</span>(x3 - x2, y3 - y2);
+    d31 = <span class="fn">hypot</span>(x1 - x3, y1 - y3);
+
+    r1 = (d12 + d31 - d23) / 2;
+    r2 = (d12 + d23 - d31) / 2;
+    r3 = (d23 + d31 - d12) / 2;
+
+    <span class="kw">if</span> (r1 &lt;= 0 || r2 &lt;= 0 || r3 &lt;= 0) { <span class="fn">printf</span>(<span class="cm">"-1\n"</span>); <span class="kw">return</span> 0; }
+
+    <span class="kw">if</span> (r1 &gt; r2) { t = r1; r1 = r2; r2 = t; }
+    <span class="kw">if</span> (r2 &gt; r3) { t = r2; r2 = r3; r3 = t; }
+    <span class="kw">if</span> (r1 &gt; r2) { t = r1; r1 = r2; r2 = t; }
+
+    <span class="fn">printf</span>(<span class="cm">"%.6f %.6f %.6f\n"</span>, r1, r2, r3);
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>样例验证：</b><code>0 0 1 0 1 1</code> → <code>0.292893 0.707107 0.707107</code>；<code>0 0 1 0 2 0</code> → <code>-1</code>。</p>
+  <p><b>坑：</b>坐标到 10⁸，距离用 <code>double</code> 和 <code>hypot</code> 就够（<code>hypot</code> 自带溢出保护）；判"无解"用 <code>r &lt;= 0</code>，别用 <code>== 0</code> 去比浮点。</p>
+  <div class="callout green">
+    <span class="lbl">这题真的只是解方程</span>
+    只有 3 人通过，但代码不到 20 行，没有几何库、没有精度陷阱。<b>大多数人被"齿轮 / 几何"的描述吓退了。</b>
+  </div>
+</section>
+
+<!-- ========== M ========== -->
+<section>
+  <h2><span class="num">M</span>电影院热度统计<span class="h2sub">18 人通过 · 差分 + 前缀和 · 你 AC 了（167 分钟，5 WA）</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>n 个时间段各有一个初始热度（n ≤ 10⁵）。T 次操作（T ≤ 10⁵），每次给区间 <code>[P,Q]</code> 全体加 R（R 可以是负数，|R| ≤ 10⁶）。最后问区间 <code>[l,r]</code> 的热度总和。</p>
+  <p><b>思路：</b>这就是你练过的<b>差分 + 前缀和</b>，一步都没变：</p>
+  <ol>
+    <li>每次区间加：<code>d[P] += R; d[Q+1] -= R;</code>（O(1) 一次操作）</li>
+    <li>全部操作完，对 d 求前缀和并累加到原数组上，得到最终热度；</li>
+    <li>再对最终热度求前缀和，回答查询：<code>S[r] - S[l-1]</code>。</li>
+  </ol>
+  <div class="codebox"><div class="cbt">M.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="kw">#define</span> MAXN 100005
+
+<span class="kw">long long</span> a[MAXN];     <span class="cm">/* 最终热度 */</span>
+<span class="kw">long long</span> d[MAXN];     <span class="cm">/* 差分数组，注意开 n+2 的余量 */</span>
+<span class="kw">long long</span> S[MAXN];     <span class="cm">/* 最终热度的前缀和 */</span>
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">int</span> n, T, i, l, r;
+    <span class="kw">long long</span> R, P, Q, cur = 0;
+
+    <span class="fn">scanf</span>(<span class="cm">"%d"</span>, &amp;n);
+    <span class="kw">for</span> (i = 1; i &lt;= n; i++) <span class="fn">scanf</span>(<span class="cm">"%lld"</span>, &amp;a[i]);
+
+    <span class="fn">scanf</span>(<span class="cm">"%d"</span>, &amp;T);
+    <span class="kw">for</span> (i = 0; i &lt; T; i++) {
+        <span class="fn">scanf</span>(<span class="cm">"%lld %lld %lld"</span>, &amp;R, &amp;P, &amp;Q);
+        <span class="kw">if</span> (P &gt; n) <span class="kw">continue</span>;
+        <span class="kw">if</span> (Q &gt; n) Q = n;              <span class="cm">/* 题目给的上界比 n 大，钳一下 */</span>
+        d[P] += R;
+        d[Q + 1] -= R;
+    }
+
+    <span class="kw">for</span> (i = 1; i &lt;= n; i++) { cur += d[i]; a[i] += cur; }
+    <span class="kw">for</span> (i = 1; i &lt;= n; i++) S[i] = S[i-1] + a[i];
+
+    <span class="fn">scanf</span>(<span class="cm">"%d %d"</span>, &amp;l, &amp;r);
+    <span class="fn">printf</span>(<span class="cm">"%lld\n"</span>, S[r] - S[l-1]);
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>样例验证：</b>初始 <code>20 -10 30 -15 40 60</code>，四次操作后是 <code>5 0 80 35 70 60</code>，查询 <code>[3,6]</code> → 245。</p>
+  <p><b>坑：</b>① 全部用 <code>long long</code>——10⁵ 次 × 10⁶ 能到 10¹¹，<code>int</code> 必炸；② 题目里 Q 最大 10⁶ 而 n 只有 10⁵，<b>不钳一下会越界</b>（这可能是你 5 次 WA 的原因）；③ 差分数组要开 <code>n+2</code>，因为会写到 <code>d[Q+1]</code>。</p>
+</section>
+
+<!-- ========== N ========== -->
+<section>
+  <h2><span class="num">N</span>旅行中的游戏<span class="h2sub">1 人通过 · 博弈 + 分解质因数 · 你没提交</span></h2>
+  <div class="rule"></div>
+  <p><b>题意：</b>t 组询问（t ≤ 10⁵，n ≤ 10⁹）。n 是巨石大小。轮到谁时，若 n 是<b>质数或 1</b>，他可以直接砸碎它并获胜；否则他必须选一个 <code>1 &lt; x &lt; n</code> 且 <code>x | n</code>，把 n 变成 <code>n/x</code>。问先手（小怪兽）能否取胜。</p>
+  <p><b>思路：</b>只看 n 的质因数个数（带重复），记作 <code>Ω(n)</code>：</p>
+  <ul>
+    <li><code>Ω(n) = 0</code>（n=1）或 <code>1</code>（质数）→ <b>当前玩家立刻赢</b>；</li>
+    <li><code>Ω(n) = 2</code>（n = p·q）→ <b>无论怎么选，结果都是质数，对手立刻赢</b>，所以当前玩家必败；</li>
+    <li><code>Ω(n) ≥ 3</code> → 可以一次消掉 <code>Ω(n)−2</code> 个质因子，把局面变成 Ω=2 交给对手 → <b>当前玩家必胜</b>。</li>
+  </ul>
+  <p>结论：<b>Ω(n) == 2 则先手必败，否则先手必胜。</b></p>
+  <div class="codebox"><div class="cbt">N.c</div>
+<pre><span class="kw">#include</span> &lt;stdio.h&gt;
+
+<span class="kw">int</span> <span class="fn">omega</span>(<span class="kw">int</span> n) {
+    <span class="kw">int</span> c = 0, p;
+    <span class="kw">for</span> (p = 2; (<span class="kw">long long</span>)p * p &lt;= n; p++) {
+        <span class="kw">while</span> (n % p == 0) { n /= p; c++; }
+        <span class="kw">if</span> (c &gt;= 3) <span class="kw">return</span> 3;      <span class="cm">/* 只要知道 >=3，可以早退 */</span>
+    }
+    <span class="kw">if</span> (n &gt; 1) c++;
+    <span class="kw">return</span> c;
+}
+
+<span class="kw">int</span> <span class="fn">main</span>(<span class="kw">void</span>) {
+    <span class="kw">int</span> t, n;
+    <span class="fn">scanf</span>(<span class="cm">"%d"</span>, &amp;t);
+    <span class="kw">while</span> (t--) {
+        <span class="fn">scanf</span>(<span class="cm">"%d"</span>, &amp;n);
+        <span class="fn">printf</span>(<span class="fn">omega</span>(n) == 2 ? <span class="cm">"Sakurazuihaole\n"</span> : <span class="cm">"Sakurazhenlihai\n"</span>);
+    }
+    <span class="kw">return</span> 0;
+}</pre></div>
+  <p><b>样例验证：</b>24 = 2³·3 → Ω=4 → <code>Sakurazhenlihai</code>；14 = 2·7 → Ω=2 → <code>Sakurazuihaole</code>。</p>
+  <p><b>坑：</b>① 试除到 <code>p*p &gt; n</code> 就停，最后剩下的 <code>n &gt; 1</code> 本身是一个质因子；② 计数到 3 就可以提前返回，否则 t 组 × 试除会慢；③ 输出字符串<b>一个字都不能差</b>，两个串长得很像。</p>
+</section>
+
+<!-- ========== 收尾 ========== -->
+<section>
+  <h2><span class="num">15</span>下次遇到同类比赛，三个动作</h2>
+  <div class="rule"></div>
+  <ol>
+    <li><b>开局先按"通过人数"排序，从多的开始做。</b>榜上那个数字就是全场公认的难度，比自己的感觉可靠。</li>
+    <li><b>简单题读 30 秒，判断"是不是模拟 / 枚举"。</b>H 和 L 都不是算法题，是"翻译题意"题，恰恰最容易被跳过。</li>
+    <li><b>同一题超过 40 分钟没进展就换。</b>M 花了 167 分钟，代价是 H（10 分钟）和 D（20 分钟）没做。</li>
+  </ol>
+  <div class="callout blue">
+    <span class="lbl">关于 C 题（01 背包）</span>
+    这题唯一的门槛是"看懂 <code>dp[i][j]</code> 的第一维"。建议的练法：<b>拿 3 件物品、容量 10，在纸上把 dp 表一行一行填出来</b>，填完你就不需要背那 4 行循环了。
+  </div>
+</section>
+
+<footer>
+  依据《2026 年大连民族大学程序设计竞赛 - 全部题面》整理 · 比赛 2026-10-24 10:00–15:00<br>
+  A / B / C / D / E / G / H / I / L / M / N 的代码均已对官方样例验证；F / J / K 给出思路，代码仅作参考。
+</footer>
+
+</div>
+</body>
+</html>
