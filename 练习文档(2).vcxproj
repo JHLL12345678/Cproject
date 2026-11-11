@@ -139,24 +139,35 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="159练习赛-拍照.c" />
+    <ClCompile Include="bfs练习.c" />
+    <ClCompile Include="P1002.c" />
     <ClCompile Include="P1093 [NOIP 2007 普及组] 奖学金.c" />
     <ClCompile Include="P1104 生日.c" />
     <ClCompile Include="P1182 数列分段 Section II.c" />
     <ClCompile Include="P1182 数列分段.c" />
-    <ClCompile Include="P1216  数字三角形 Number Triangles.c" />
     <ClCompile Include="P1553 数字反转（升级版）.c" />
     <ClCompile Include="P1553 数字反转（升级版）_修正版.c">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">#define _CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="P1553 数字反转（升级版）_注释版.c" />
+    <ClCompile Include="P1603 斯诺登的密码.c" />
+    <ClCompile Include="P1747 好奇怪的游戏.c" />
     <ClCompile Include="P1873 [COCI 20112012 5] EKO 砍树.c" />
     <ClCompile Include="P2004 领地选择.c" />
     <ClCompile Include="P2249 【深基13.例1】查找.c" />
     <ClCompile Include="P2367 语文成绩.c" />
     <ClCompile Include="P3741小果的键盘.c" />
     <ClCompile Include="P8218 【深进1.例1】求区间和.c" />
+    <ClCompile Include="[letcode]494.目标和.c" />
+    <ClCompile Include="[牛客周赛169]-小红的比赛.c" />
+    <ClCompile Include="力扣p1091二进制矩阵的最短路径.c" />
+    <ClCompile Include="做题练习文档.c" />
+    <ClCompile Include="对比代码文件.c" />
     <ClCompile Include="求最大最小平均.c" />
-    <ClCompile Include="空白练习文档.c" />
+    <ClCompile Include="群雄逐鹿.c" />
+    <ClCompile Include="贪吃蛇练习.c" />
+    <ClCompile Include="阶乘和.c" />
     <ClCompile Include="骨架.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

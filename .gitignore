@@ -361,10 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-# ---- 本项目补充（C 语言习题工程）----
-*.exe
-*.dll
-*.lib
-*.exp
-*.tlog
-*.log

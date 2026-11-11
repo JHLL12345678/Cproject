@@ -21,7 +21,7 @@
     <ClCompile Include="P3741小果的键盘.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="空白练习文档.c">
+    <ClCompile Include="阶乘和.c">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="P1553 数字反转（升级版）.c">
@@ -63,7 +63,40 @@
     <ClCompile Include="P1182 数列分段.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="P1216  数字三角形 Number Triangles.c">
+    <ClCompile Include="做题练习文档.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P1603 斯诺登的密码.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P1002.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bfs练习.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="贪吃蛇练习.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P1747 好奇怪的游戏.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="力扣p1091二进制矩阵的最短路径.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="[letcode]494.目标和.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="群雄逐鹿.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="159练习赛-拍照.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="对比代码文件.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="[牛客周赛169]-小红的比赛.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
