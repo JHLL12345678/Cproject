@@ -142,6 +142,8 @@
     <ClCompile Include="159练习赛-拍照.c" />
     <ClCompile Include="bfs练习.c" />
     <ClCompile Include="P1002.c" />
+    <ClCompile Include="P1003 [NOIP 2011 提高组] 铺地毯.c" />
+    <ClCompile Include="P1042 [NOIP 2003 普及组] 乒乓球.c" />
     <ClCompile Include="P1093 [NOIP 2007 普及组] 奖学金.c" />
     <ClCompile Include="P1104 生日.c" />
     <ClCompile Include="P1182 数列分段 Section II.c" />
@@ -158,6 +160,8 @@
     <ClCompile Include="P2249 【深基13.例1】查找.c" />
     <ClCompile Include="P2367 语文成绩.c" />
     <ClCompile Include="P3741小果的键盘.c" />
+    <ClCompile Include="P5735 【深基7.例1】.c" />
+    <ClCompile Include="P5736 【深基7.例2】质数筛.c" />
     <ClCompile Include="P8218 【深进1.例1】求区间和.c" />
     <ClCompile Include="[letcode]494.目标和.c" />
     <ClCompile Include="[牛客周赛169]-小红的比赛.c" />

@@ -99,5 +99,17 @@
     <ClCompile Include="[牛客周赛169]-小红的比赛.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="P1003 [NOIP 2011 提高组] 铺地毯.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P5735 【深基7.例1】.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P5736 【深基7.例2】质数筛.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P1042 [NOIP 2003 普及组] 乒乓球.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
