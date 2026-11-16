@@ -126,5 +126,8 @@
     <ClCompile Include="[牛客周赛170]-qc的箱子%28未完成%29.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="[牛客周赛170]-qc的补给站.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

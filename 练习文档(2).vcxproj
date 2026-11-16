@@ -167,6 +167,7 @@
     <ClCompile Include="[小白月赛140]-小花的快递.c" />
     <ClCompile Include="[牛客周赛169]-小红的比赛.c" />
     <ClCompile Include="[牛客周赛170]-qc的箱子%28未完成%29.c" />
+    <ClCompile Include="[牛客周赛170]-qc的补给站.c" />
     <ClCompile Include="[牛客小白月赛]-小花的奶茶.c" />
     <ClCompile Include="[牛客小白月赛]-小花的星图.c" />
     <ClCompile Include="[牛客小白月赛]-小花的糖果.c" />
