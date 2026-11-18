@@ -34,9 +34,9 @@ int main()
     long long ans = 0;
     long long min = n;
     int p = 0;
-    for (long long i = n; i >= 1; i--)//右边的点
+    for (long long i = n; i >= 1; i--)//从n开始枚举点作为左端点
     {
-        while (p<n && a[p].l>i)//p从
+        while (p<n && a[p].l>i)//p是右端点枚举过来
         {
             if (a[p].r < min)//如果右端点小于最小值
             {
