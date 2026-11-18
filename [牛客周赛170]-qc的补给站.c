@@ -1,54 +1,39 @@
-#include<stdio.h>
-#include<stdlib.h>
-typedef struct {
-    long long l;
-    long long r;
-}Person;
-int cmp(const void* a, const void* b)
-{
-    Person* p1 = (Person*)a;
-    Person* p2 = (Person*)b;
-    if (p1->l > p2->l)
-    {
-        return -1;
-    }
-    if (p1->l < p2->l)
-    {
-        return 1;
-    }
-    return 0;
+#include <stdio.h>
+#include <stdlib.h>
+#define ll long long
+typedef struct  {
+	ll l, r;
+}node;
+node a[200005];
+int cmp_int(const void *a,const void*b) {
+	const node* x = (const node*)a, * y = (const node*)b;
+	if (x->l == y->l)
+		return (x->r < y->r) - (x->r > y->r);
+	return (x->l < y->l) - (x->l > y->l);
 }
-Person a[200005];
-int main()
-{
-    int n;
-    scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
-    {
-        long long d;
-        scanf("%lld", &d);
-        a[i - 1].l = i - d + 1;//能接触到的箱子的左边界5 2 1 3 1 2
-        a[i - 1].r = i + d - 1;//能接触到的箱子的右边界
-    }
-    qsort(a, n, sizeof(Person), cmp);//从大到小
-    long long ans = 0;
-    long long min = n;
-    int p = 0;
-    for (long long i = n; i >= 1; i--)//右边的点
-    {
-        while (p<n && a[p].l>i)//p从
-        {
-            if (a[p].r < min)//如果右端点小于最小值
-            {
-                min = a[p].r;
-            }
-            p++;
-        }
-        if (min >= i)
-        {
-            ans += (min - i + 1);
-        }
-    }
-    printf("%lld\n", ans);
-    return 0;
+int main() {
+	int n;
+	scanf("%d", &n);
+	for (int i = 1; i <= n; i++)
+	{
+		ll I;
+		scanf("%lld", &I);
+		a[i].r = I + i - 1;//因为ai=r-i+1即r=ai+i-1
+		a[i].l = i - I + 1;//因为ai=i-l+1即l=i-ai+1
+	}
+	qsort(a+1, n,sizeof(node),cmp_int);
+	int q = 1;
+	ll min = n,ans=0;
+	for (int i = n; i >=1 ; i--){
+		while (q <= n && a[q].l > i  ) {
+			if (a[q].r < min)
+				min = a[q].r;
+			q++;
+		}
+		if (min >= i)
+		{
+			ans += (min - i + 1);
+		}
+	}
+	printf("%lld",ans);
 }
