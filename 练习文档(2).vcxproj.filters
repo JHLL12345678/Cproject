@@ -129,5 +129,8 @@
     <ClCompile Include="[牛客周赛170]-qc的补给站.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="[力扣]-5.最长回文子串.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
