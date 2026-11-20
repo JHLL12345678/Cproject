@@ -135,5 +135,8 @@
     <ClCompile Include="[力扣]-11.装最多水的容器.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="[力扣]-18.四数之和.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
