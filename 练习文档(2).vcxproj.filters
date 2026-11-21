@@ -24,5 +24,8 @@
     <ClCompile Include="[力扣]-3679.使库存平衡的最少丢弃次数.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="[洛谷]-P8577 [CoE R5] 暴龙的白菜.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
