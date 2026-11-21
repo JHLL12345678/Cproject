@@ -165,8 +165,14 @@
     <ClCompile Include="P8218 【深进1.例1】求区间和.c" />
     <ClCompile Include="[letcode]494.目标和.c" />
     <ClCompile Include="[力扣]-11.装最多水的容器.c" />
+    <ClCompile Include="[力扣]-1343. 大小为 K 且平均值大于等于阈值的子数组数目.c" />
+    <ClCompile Include="[力扣]-1423.可获得的最大点数.c" />
+    <ClCompile Include="[力扣]-1456.定长子串中元音的最大数目.c" />
+    <ClCompile Include="[力扣]-15.三数之和.c" />
     <ClCompile Include="[力扣]-18.四数之和.c" />
+    <ClCompile Include="[力扣]-22.括号生成%28暂时未完成%29.c" />
     <ClCompile Include="[力扣]-5.最长回文子串.c" />
+    <ClCompile Include="[力扣]-643.子数组最大平均数.c" />
     <ClCompile Include="[小白月赛140]-小花的快递.c" />
     <ClCompile Include="[牛客周赛169]-小红的比赛.c" />
     <ClCompile Include="[牛客周赛170]-qc的箱子%28未完成%29.c" />
