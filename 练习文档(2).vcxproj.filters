@@ -15,7 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FileName.cpp">
+    <ClCompile Include="[力扣]-1052. 爱生气的书店老板.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="种树.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="[力扣]-3679.使库存平衡的最少丢弃次数.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
